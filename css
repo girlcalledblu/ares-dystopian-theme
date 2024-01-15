@@ -1,0 +1,250 @@
+// FONT IMPORT
+
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Kanit:wght@200;300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// COLOR VARIATIONS
+
+/* Background Color Variants */
+
+$darker-brown: #4e3e3b;
+
+/* Secondary Color Variants */
+
+$darkest-slate: #2e3744;
+
+$light-grey: #ebebeb;
+$dark-grey: #3a4146;
+$darker-grey: #23272a;
+$darkest-grey: #171a1c;
+$blackest-grey: #191919;
+$almost-black: #0c0c0c;
+$dark-red: #b61300;
+$darker-red: #960100;
+$darkest-red: #7c0c00;
+$blackest-red: #510800;
+$yellow: #FBCF07;
+$gradient: linear-gradient(90deg, black 0%, #b61300 20%, #7c0c00 50%, black 100%);
+
+// COLOR SPECIFICS
+
+.table {
+--bs-table-bg: #fff0;
+}
+
+:root {
+--bs-body-bg: $background-color;
+--bs-warning-bg-subtle: #f9c1b1;
+--bs-alert-color: #b65d0e;
+--bs-warning-border-color: #f3886a;
+--bs-alert-link-color: $secondary-color;
+}
+
+.card-body {
+color: #bbb;
+}
+
+// CORE CSS (body styling, ansi recolors, etc)
+
+body {
+font-family: 'Roboto', sans-serif;
+font-size: 1em;
+}
+
+// HEADER (top of webportal) and FOOTER
+
+.header-wrap {
+    background-image: url(/game/uploads/theme_images/background-sw.png);
+    background-size: cover;
+    height: 310px;
+    background-position: bottom left;
+}
+
+.title-wrap {
+    height: 252px;
+}
+
+.site-title {
+    font-size: 4em;
+    font-family: 'Expletus Sans';
+    text-transform: uppercase; /* remove this line if you are using a font that does not look good in uppercase for the game title */
+}
+
+.site-subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 1px;
+    background: url(/game/uploads/theme_images/h1-smear.png) no-repeat center;
+    background-size: contain;
+}
+
+footer {
+    background-image: url(/game/uploads/theme_images/footer.png); /* this image does not come default with Ares and can be replaced through the files directory with your own footer image or deleted entirely; delete this entire element if you do not want to use a footer image */
+    background-size: cover;
+    background-position: bottom center;
+}
+
+.body-wrap + hr {
+display: none; /* this removes the horizontal rule between the body and the footer */
+}
+
+// FRONT PAGE
+
+// HEADERS (h1, h2, etc)
+
+h1, .h1 {
+    background-color: transparent; /* you could add a color here if you wanted a stripe of color behind the smear */
+    background-image: url(/game/uploads/theme_images/h1-smear.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 0.1em 1.2em;
+    color: #ebebeb;
+    font-weight: 100;
+    font-family: 'Kanit';
+    text-transform: lowercase;
+    border: 0;
+    letter-spacing: 0.1em;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+// BOX
+
+.area-entry .box {
+	border: 0;
+}
+
+.box {
+	background-image: url(/game/uploads/theme_images/box-bg.png);
+	background-size: cover;
+	background-position: left top;
+}
+
+.box > p {
+	padding: 0;
+	margin: 0
+}
+
+.boxinfo {
+	margin-top: 3px;
+}
+
+.pageboxl a:hover {
+	color: $blackest-grey
+}
+
+.boxtable-row {
+	border-bottom: 1px solid $dark-red;
+	padding: 5px
+}
+
+.boxtable-last {
+	padding: 5px
+}
+
+.boxpic {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 400px;
+}
+
+.boxpic img {
+	width: 100%;
+	border: 10px solid $almost-black;
+}
+
+.boxpic p {
+	margin: 0;
+	line-height: 0;
+	padding: 0
+}
+
+.boxpic .image-container {
+	padding: 0;
+	margin-top: -17px
+}
+
+.box-header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	border-bottom: 2px solid $dark-grey;
+	margin-right: 4px
+}
+
+.box-title {
+	flex-basis: 60%
+}
+
+.box-title h2,
+.box-title .h2,
+	{
+	font-size: calc(14px + 0.4vw) !important;
+	color: $dark-red !important;
+	margin-bottom: 0;
+	margin-top: .15em;
+	padding-top: 0;
+	line-height: 1.1
+}
+
+.box-header p {
+	margin-bottom: 5px
+}
+
+.box-loc {
+	flex-basis: 40%;
+	text-align: right;
+	font-family: 'Unica One', Arial Narrow !important;
+	font-size: calc(14px + 0.4vw) !important;
+	color: $dark-red
+}
+
+.box .tab-content {
+	background-color: $darkest-grey;
+	color: $blackest-grey
+}
+
+.box .nav-tabs > li > a {
+	background-color: $darkest-grey;
+	font-family: 'Unica One', Arial Narrow;
+	font-size: 1em;
+	letter-spacing: 1px;
+	line-height: 1;
+	padding-bottom: .25em
+}
+
+.box .nav-tabs > li > a:hover {
+	background-color: $darker-grey;
+}
+
+// NAV BAR
+
+.navbar-nav .dropdown-menu {
+background-color: $darkest-slate;
+border-top: 4px solid $darker-brown;
+font-family: 'Roboto', sans-seriff;
+text-transform: none;
+}
+
+.header-wrap nav {
+    background-color: rgba(0, 0, 0, .25); /* this is the transparency level of the navigation bar on the header; original value is .45) */
+    font-family: 'Kanit';
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 1.13em;
+}
+
+// CHARACTER PROFILES
+
+/* Profile Box */
+
+/* Other */
+
+.status-message {
+background-color: $primary-color;
+}
