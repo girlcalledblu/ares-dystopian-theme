@@ -1,6 +1,6 @@
 // FONT IMPORT
 
-@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Kanit:wght@200;300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Tektur:wght@400..900&display=swap');
 
 // COLOR VARIATIONS
 
@@ -12,239 +12,536 @@ $darker-brown: #4e3e3b;
 
 $darkest-slate: #2e3744;
 
+/* Muted Rainbow */
+$muted-red: #852730;
+$muted-orange: #ff8307;
+$muted-yellow: #ffc107;
+$muted-green: #578c63;
+$muted-blue: #0b5889;
+$muted-purple: #68459d;
+$muted-slate: #4e5294;
+$muted-magenta: #6b206b;
+$muted-pink: #c15a8e;
+
+/* Grayscale */
 $light-grey: #ebebeb;
 $dark-grey: #3a4146;
 $darker-grey: #23272a;
 $darkest-grey: #171a1c;
 $blackest-grey: #191919;
 $almost-black: #0c0c0c;
-$dark-red: #b61300;
-$darker-red: #960100;
-$darkest-red: #7c0c00;
-$blackest-red: #510800;
-$yellow: #FBCF07;
-$gradient: linear-gradient(90deg, black 0%, #b61300 20%, #7c0c00 50%, black 100%);
-
-// COLOR SPECIFICS
-
-.table {
---bs-table-bg: #fff0;
-}
-
-:root {
---bs-body-bg: $background-color;
---bs-warning-bg-subtle: #f9c1b1;
---bs-alert-color: #b65d0e;
---bs-warning-border-color: #f3886a;
---bs-alert-link-color: $secondary-color;
-}
-
-.card-body {
-color: #bbb;
-}
 
 // CORE CSS (body styling, ansi recolors, etc)
 
 body {
-font-family: 'Roboto', sans-serif;
-font-size: 1em;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+}
+
+// INPUT
+.close {
+	text-shadow: 1px 1px 0 $secondary-color;
+}
+
+input {
+	color: $light-grey;
+	outline: 0;
+	border: 2px solid $almost-black;
+	border-radius: 0
+}
+
+input:focus,
+textarea:focus,
+input[type="text"]:focus {
+	box-shadow: 0 0 1px 1px $secondary-color inset;
+}
+
+.ember-power-select-trigger:focus {
+	border-bottom: 0 !important;
+	border-top: 0 !important;
+	box-shadow: none !important;
+	border-left: 0 !important;
+	border-right: 0 !important;
+}
+
+textarea,
+input {
+	background-color: $dark-grey;
+	border: 1px solid $almost-black;
+	border-radius: 0;
+	outline: 0;
+	min-height: 32px
+}
+
+textarea {
+	width: 100%;
+	margin: 0;
+	border-top: 0 !important
+}
+
+pre code {
+	color: $text-color;
+}
+
+pre {
+	color: $text-color;
+}
+
+code {
+	background-color: $almost-black;
+	color: $text-color;
+}
+
+// FORMS
+#limit,
+#title,
+#icdate,
+#tags,
+#content_warning {
+	padding: 6px 12px;
+	width: 100%
+}
+
+#content_warning {
+	margin-top: 15px
+}
+
+.ember-power-select-trigger {
+	background-color: $dark-grey;
+	border: 1px solid $almost-black;
+	border-radius: 0;
+	min-height: 39px
+}
+
+.ember-power-select-option[aria-current=true] {
+	background-color: $secondary-color;
+	color: inherit
+}
+
+.ember-basic-dropdown-content {
+	background-color: $dark-grey
+}
+
+.ember-power-select-option[aria-selected=true] {
+	background-color: $secondary-color
+}
+
+.ember-power-select-dropdown.ember-basic-dropdown-content--above {
+	border-top: 1px solid $almost-black;
+	border-bottom: 1px solid $almost-black
+}
+
+.ember-power-select-dropdown.ember-basic-dropdown-content--below,
+.ember-power-select-dropdown.ember-basic-dropdown-content--in-place {
+	border-top: 1px solid $almost-black;
+	border-bottom: 1px solid $almost-black
+}
+
+.ember-power-select-dropdown {
+	border-left: 1px solid $almost-black;
+	border-right: 1px solid $almost-black
+}
+
+.form-control[readonly] {
+	display: none;
+}
+
+input[type="text"],
+.ember-text-field {
+	background: $dark-grey;
+	border: 1px solid $almost-black;
+	padding: 5px;
+	border-radius: 0;
+	outline: 0;
+	height: 39px;
+	width: 100%;
+}
+
+.form-group:nth-of-type(6)>.col-sm-9>p {
+	width: 50%;
+	float: left;
+	min-width: 200px;
+	margin: 0
+}
+
+p:nth-of-type(2)>#location {
+	width: calc(100% - .5em);
+	margin-left: .5em
+}
+
+.markdown-controls>a:not(.markdown-control-toggle) {
+	float: right;
+	margin-left: -.25em;
+	margin-right: .25em;
+	width: 1.25em;
+	text-align: right
+}
+
+.flatpickr-calendar {
+	background: $dark-grey;
+	box-shadow: none;
+	border: 1px solid $darker-grey;
+	color: $text-color;
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month,
+.flatpickr-current-month,
+span.flatpickr-weekday,
+.flatpickr-day {
+	color: $text-color;
+	fill: $text-color;
+}
+
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.notAllowed,
+.flatpickr-day.notAllowed.prevMonthDay,
+.flatpickr-day.notAllowed.nextMonthDay {
+	color: #696969;
+}
+
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.today.inRange,
+.flatpickr-day.nextMonthDay.today.inRange,
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day:focus,
+.flatpickr-day.prevMonthDay:focus,
+.flatpickr-day.nextMonthDay:focus {
+	background: $secondary-color;
+	border-color: $secondary-color;
+	color: $almost-black;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+	background: $primary-color;
+	border: $primary-color;
+}
+
+.flatpickr-monthDropdown-month {
+	background-color: $background-color  !important;
 }
 
 // HEADER (top of webportal) and FOOTER
 
 .header-wrap {
-    background-image: url(/game/uploads/theme_images/background-sw.png);
-    background-size: cover;
-    height: 310px;
-    background-position: bottom left;
+	background-image: url(/game/uploads/theme_images/background-dys.png);
+	background-size: cover;
+	height: 310px;
+	background-position: bottom left;
 }
 
 .title-wrap {
-    height: 252px;
+	height: 252px;
 }
 
 .site-title {
-    font-size: 4em;
-    font-family: 'Expletus Sans';
-    text-transform: uppercase; /* remove this line if you are using a font that does not look good in uppercase for the game title */
+	font-size: 4em;
+	font-family: 'Tektur', sans-serif;
+	text-transform: uppercase;
+	/* remove this line if you are using a font that does not look good in uppercase for the game title */
+	text-align: center;
 }
 
 .site-subtitle {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Kanit', sans-serif;
-    letter-spacing: 1px;
-    background: url(/game/uploads/theme_images/h1-smear.png) no-repeat center;
-    background-size: contain;
+	text-transform: uppercase;
+	font-family: 'Bebas Neue', sans-serif;
+	letter-spacing: 1px;
+	background: url(/game/uploads/theme_images/h1-smear.png) no-repeat center;
+	background-size: contain;
+	font-size: 1.75em;
+	text-align: center;
 }
 
 footer {
-    background-image: url(/game/uploads/theme_images/footer.png); /* this image does not come default with Ares and can be replaced through the files directory with your own footer image or deleted entirely; delete this entire element if you do not want to use a footer image */
-    background-size: cover;
-    background-position: bottom center;
+	background: linear-gradient(180deg, $background-color, transparent), url(/game/uploads/theme_images/footer.png);
+	/* this image does not come default with Ares and can be replaced through the files directory with your own footer image or deleted entirely; delete this entire element if you do not want to use a footer image */
+	background-size: cover;
+	background-position: bottom center;
 }
 
-.body-wrap + hr {
-display: none; /* this removes the horizontal rule between the body and the footer */
+.body-wrap+hr {
+	display: none;
+	/* this removes the horizontal rule between the body and the footer */
+}
+
+.user-bar {
+	padding-right: 0;
+	margin-top: 0;
+	text-align: right;
+}
+
+.user-bar p {
+	line-height: 1;
 }
 
 // FRONT PAGE
 
 // HEADERS (h1, h2, etc)
 
-h1, .h1 {
-    background-color: transparent; /* you could add a color here if you wanted a stripe of color behind the smear */
-    background-image: url(/game/uploads/theme_images/h1-smear.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding: 0.1em 1.2em;
-    color: #ebebeb;
-    font-weight: 100;
-    font-family: 'Kanit';
-    text-transform: lowercase;
-    border: 0;
-    letter-spacing: 0.1em;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-// BOX
-
-.area-entry .box {
+h1,
+.h1 {
+	background-color: transparent;
+	/* you could add a color here if you wanted a stripe of color behind the smear */
+	background-image: url(/game/uploads/theme_images/h1-smear_invert.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding: 0.1em 1.2em;
+	color: #ebebeb;
+	font-family: 'Bebas Neue';
 	border: 0;
-}
-
-.box {
-	background-image: url(/game/uploads/theme_images/box-bg.png);
-	background-size: cover;
-	background-position: left top;
-}
-
-.box > p {
-	padding: 0;
-	margin: 0
-}
-
-.boxinfo {
-	margin-top: 3px;
-}
-
-.pageboxl a:hover {
-	color: $blackest-grey
-}
-
-.boxtable-row {
-	border-bottom: 1px solid $dark-red;
-	padding: 5px
-}
-
-.boxtable-last {
-	padding: 5px
-}
-
-.boxpic {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 400px;
-}
-
-.boxpic img {
-	width: 100%;
-	border: 10px solid $almost-black;
-}
-
-.boxpic p {
-	margin: 0;
-	line-height: 0;
-	padding: 0
-}
-
-.boxpic .image-container {
-	padding: 0;
-	margin-top: -17px
-}
-
-.box-header {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	border-bottom: 2px solid $dark-grey;
-	margin-right: 4px
-}
-
-.box-title {
-	flex-basis: 60%
-}
-
-.box-title h2,
-.box-title .h2,
-	{
-	font-size: calc(14px + 0.4vw) !important;
-	color: $dark-red !important;
-	margin-bottom: 0;
-	margin-top: .15em;
-	padding-top: 0;
-	line-height: 1.1
-}
-
-.box-header p {
-	margin-bottom: 5px
-}
-
-.box-loc {
-	flex-basis: 40%;
-	text-align: right;
-	font-family: 'Unica One', Arial Narrow !important;
-	font-size: calc(14px + 0.4vw) !important;
-	color: $dark-red
-}
-
-.box .tab-content {
-	background-color: $darkest-grey;
-	color: $blackest-grey
-}
-
-.box .nav-tabs > li > a {
-	background-color: $darkest-grey;
-	font-family: 'Unica One', Arial Narrow;
-	font-size: 1em;
-	letter-spacing: 1px;
-	line-height: 1;
-	padding-bottom: .25em
-}
-
-.box .nav-tabs > li > a:hover {
-	background-color: $darker-grey;
+	letter-spacing: 0.1em;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 // NAV BAR
 
 .navbar-nav .dropdown-menu {
-background-color: $darkest-slate;
-border-top: 4px solid $darker-brown;
-font-family: 'Roboto', sans-seriff;
-text-transform: none;
+	background-color: $darkest-slate;
+	border-top: 4px solid $darker-brown;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .header-wrap nav {
-    background-color: rgba(0, 0, 0, .25); /* this is the transparency level of the navigation bar on the header; original value is .45) */
-    font-family: 'Kanit';
-    font-weight: 100;
-    text-transform: uppercase;
-    font-size: 1.13em;
+	background: linear-gradient(360deg, $background-color, transparent), rgba(0, 0, 0, 0.25);
+	font-family: 'Tektur', sans-serif;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-size: 1.13em;
+}
+
+.dropdown-item:hover {
+	background-color: #6e999d;
+	color: $almost-black;
 }
 
 // CHARACTER PROFILES
 
 /* Profile Box */
 
+.profile-box {
+	background-color: $background-color;
+}
+
 /* Other */
 
 .status-message {
-background-color: $primary-color;
+	background-color: $primary-color;
+}
+
+// TABS
+
+.nav-tabs {
+	border-bottom: 2px solid #9d6e81;
+	border-top: 2px solid #9d6e81;
+}
+
+.nav-tabs .nav-link {
+	color: #090909;
+	background-color: #9d6e81;
+	border-radius: 0;
+	margin-right: -2px;
+	font-family: 'TEKTUR';
+	font-size: 1em;
+	font-weight: 600;
+	text-transform: uppercase;
+	border: 0;
+}
+
+.nav-tabs .nav-link.active:first-of-type {
+	border-left: 2px solid $primary-color;
+}
+
+.nav-tabs .nav-link.active:last-of-type {
+	border-right: 2px solid $primary-color;
+}
+
+
+.tab-content {
+	border: 2px solid #9d6e81;
+	border-top: none;
+	padding: 10px;
+	min-height: 50px;
+}
+
+.nav-tabs .nav-link.active {
+	background-color: $background-color;
+	color: white;
+	border: 0;
+	height: calc(100% + 2px)
+}
+
+.nav-tabs .nav-link:focus {
+	border-color: transparent;
+}
+
+.nav-tabs .nav-link:hover {
+	color: $text-color;
+}
+
+// PLAY SCREEN
+
+/* Poses */
+
+.scene-controls-box {
+	border: 1px solid $border-color;
+	background: $gutter-color !important;
+	padding: 5px;
+}
+
+.pose-divider {
+	border: 1px dotted;
+	border-top-color: #4c5d69;
+}
+
+.scene-ooc-pose {
+	background-color: $gutter-color;
+	color: $text-color;
+	padding: 5px;
+	margin: 0em 0em 1em 0.45em;
+	vertical-align: middle;
+}
+
+.scene-ooc-pose p {
+	margin-bottom: 4px;
+	margin-left: 5px;
+	margin-top: 4px;
+}
+
+.scene-ooc-pose .badge {
+	float: left;
+	margin: 0.4em 0.5em 0em 0em;
+}
+
+.scene-ooc-pose .bg-primary {
+	background-color: $secondary-color !important;
+	border-color: $border-color;
+}
+
+.scene-pose-header {
+	font-size: .8em;
+	border: 1px none transparent;
+	margin-bottom: 0;
+	background-color: $darker-grey;
+	padding: 0.5em;
+	margin-left: 0.5em;
+}
+
+.hint.float-right,
+.hint.float-end {
+	padding-top: 0.25em;
+	padding-right: 0.25em;
+	text-align: right;
+}
+
+/* Scenes */
+
+.play-scene-context {
+	margin-top: 0px;
+}
+
+.play-scene-context-prompt {
+	font-size: 1.1em;
+}
+
+.live-scene-controls {
+	text-align: right;
+	position: absolute;
+	right: 30px;
+}
+
+/* Chat */
+
+.chat-controls {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	column-gap: 0.5em;
+}
+
+.chat-controls>a:first-child {
+	flex: 1 1 auto;
+}
+
+.chat-controls>a {
+	flex: 0 0 auto;
+}
+
+/* Active Scenes & Unshared Scenes */
+
+.live-scenes-heading .col-sm-6 {
+width: 70%
+}
+
+.live-scenes-heading .col-sm-4 {
+width: 20%;
+}
+
+.live-scenes-heading .col-sm-2 {
+width: 10%;
+}
+
+// LOGS
+
+.log-box {
+	background-color: $background-color;
+}
+
+// TABLE
+
+.table {
+	--bs-table-striped-bg: rgba(0, 0, 0, 0.7);
+}
+
+// ICONS
+
+.log-icon-title-container {
+    background-color: transparent;
+    top: -30px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-family: 'Bebas Neue';
+    font-size: 1.5em;
+}
+
+.log-icon-container {
+    height: 185px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: #2e3744;
+    border: 4px solid #2e3744;
+}
+
+.log-participants-box .icon-gallery {
+justify-content: center;
 }
